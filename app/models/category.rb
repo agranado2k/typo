@@ -33,6 +33,9 @@ class Category < ActiveRecord::Base
   end
   extend Finders
 
+  def self.get_or_build(id=nil)
+    id.nil? ? Category.new : Category.find(id)
+  end
 
   def self.to_prefix
     'category'
